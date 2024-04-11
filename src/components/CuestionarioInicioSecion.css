@@ -1,0 +1,30 @@
+.CuestionarioIniciSecion{
+    display: flex;
+    display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+
+    width: 640px;
+    height: 90%;
+   
+    background-color: #89AA01;
+    border-radius: 10%;
+}
+.tituloIS{
+    font-size: 48px;
+    margin-bottom: 62px;
+}
+.botonis{
+    width: 210px;
+    height: 50px;
+    background-color: #515151;
+    font-size:24px ;
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 62px;
+    border-style: none;
+}
+:active.botonis{
+    color: #89AA01;
+}

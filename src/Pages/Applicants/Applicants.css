@@ -1,0 +1,42 @@
+.ApplicantsX{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 130px;
+    border-style: solid;
+    border-color: white;
+}
+.ImgApplicants{
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    margin-left: 20px;
+    
+}
+
+p{
+    color: white;
+    font-size: 20px;
+    margin: 0%;
+}
+.Name{
+    display: flex;
+  
+}
+.genero{
+    margin-top: 20px;
+}
+.eage{ 
+    margin-left: 10px;
+    
+    
+}
+.correo{
+margin-top: 20px;
+}
+.info{
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}

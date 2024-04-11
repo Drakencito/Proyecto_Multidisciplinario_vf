@@ -1,0 +1,18 @@
+.logoHeader{
+    width:auto;
+    height: 90px;
+}
+.Header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100px;
+    background-color: white;
+    
+}
+.TitlrHeader{
+    font-size: 24px;
+    color: #89AA01;
+    margin-right: 30px;
+}

@@ -1,0 +1,16 @@
+.CategoriasCards{
+  width: 100%;
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+}
+.iconos{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 48px;
+}
+.imgIcon{
+width: 120px;
+height: auto;
+}

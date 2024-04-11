@@ -1,0 +1,224 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 24px;
+  margin-top: 0;
+}
+
+form {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.error {
+  color: red;
+}
+
+.card-form {
+  position: absolute;
+  width: 1342px;
+  height: 2619px;
+  left: 85px;
+  top: 1350px;
+  background: #606060;
+  border-radius: 90px;
+}
+
+.soliem {
+  color: black;
+}
+
+.h2 {
+  color: black;
+}
+
+.h3 {
+  color: #000;
+}
+
+.p {
+  color: #000;
+}
+
+.la-nom {
+  position: absolute;
+  width: 561px;
+  height: 84px;
+  left: 375px;
+  top: 240px;
+  font-family: "Koulen";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 72px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.la-ema {
+  position: absolute;
+  width: 561px;
+  height: 84px;
+  left: 375px;
+  top: 500px;
+  font-family: "Koulen";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 72px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.in-email {
+  position: absolute;
+  width: 635px;
+  height: 80px;
+  left: 338px;
+  top: 571px;
+  background: #d9d9d9;
+  border-radius: 50px;
+  color: #000;
+}
+
+.in-number {
+  position: absolute;
+  width: 635px;
+  height: 80px;
+  left: 338px;
+  top: 935px;
+  background: #d9d9d9;
+  border-radius: 50px;
+  color: #000;
+}
+
+.la-number {
+  position: absolute;
+  width: 561px;
+  height: 84px;
+  left: 375px;
+  top: 855px;
+
+  font-family: "Koulen";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 72px;
+  text-align: center;
+
+  color: #ffffff;
+}
+
+.la-academy {
+  position: absolute;
+  width: 561px;
+  height: 84px;
+  left: 375px;
+  top: 1155px;
+
+  font-family: "Koulen";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 72px;
+  text-align: center;
+
+  color: #ffffff;
+}
+
+.in-academy {
+  position: absolute;
+  width: 635px;
+  height: 80px;
+  left: 338px;
+  top: 1235px;
+  background: #d9d9d9;
+  border-radius: 50px;
+  color: #000;
+}
+
+.la-skills {
+  position: absolute;
+  width: 561px;
+  height: 84px;
+  left: 375px;
+  top: 1455px;
+
+  font-family: "Koulen";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 72px;
+  text-align: center;
+
+  color: #ffffff;
+}
+
+.tex-skills {
+  position: absolute;
+  width: 635px;
+  height: 80px;
+  left: 338px;
+  top: 1535px;
+  background: #d9d9d9;
+  border-radius: 50px;
+  color: #000;
+}
+
+.la-cart {
+  position: absolute;
+  width: 561px;
+  height: 84px;
+  left: 375px;
+  top: 1735px;
+  font-family: "Koulen";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 72px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.in-cart {
+  position: absolute;
+  width: 635px;
+  height: 80px;
+  left: 338px;
+  top: 1835px;
+  background: #d9d9d9;
+  border-radius: 50px;
+  color: #000;
+}
+
+.la-cv {
+  position: absolute;
+  width: 561px;
+  height: 84px;
+  left: 375px;
+  top: 2055px;
+
+  font-family: "Koulen";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 72px;
+  text-align: center;
+
+  color: #ffffff;
+}
+
+.in-cv {
+  position: absolute;
+  width: 635px;
+  height: 80px;
+  left: 338px;
+  top: 2171px;
+  background: #d9d9d9;
+  border-radius: 50px;
+  color: #000;
+}

@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Koulen&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Koulen&display=swap");
+
+.img {
+  display: flex;
+  width: 213px;
+  height: 89px;
+}
+
+.navbar {
+ 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  width: 100%;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+margin-right: 30px;
+}
+
+.fondo {
+  display: flex;
+  width: 100%;
+  height: auto;
+}
+
+.info {
+width: 80%;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+
+}
+
+.contac {
+  color: green;
+}
+
+.reclu {
+  color: black;
+}
+.containerInfo{
+  width: 50%;
+}
+
+.tittle {
+  font-family: "Koulen";
+  font-size: 64px;
+  margin-bottom: 5px;
+ 
+  
+
+  color: #89aa01;
+}
+
+.text {
+ 
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  
+  color: #606060;
+}
+
+.container-img {
+  width: 50%;
+  
+}
+
+.imgCont{
+  display: flex;
+  justify-content: space-between;
+}
+.img1{
+  width: 100%;
+}
+.img2{
+  width:49% ;
+  margin-top: 4px;
+}
+
+.reclu{
+  display: flex;
+  width: 100%;
+  margin-top: 40px;
+}
+
+
+
+.e{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.asociation{
+  color: #89AA01;
+  display: flex;
+flex-direction: column;
+width: 80%;
+justify-content: center;
+justify-items: center;
+align-items: center;
+ 
+}
+.imgEmpres{
+  display: flex;
+  justify-content: space-between;
+  height: auto;
+  margin: 20px;
+}
+.imgAsociados{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+.footer{
+  background-color: #606060;
+  width: 100%;
+  height: auto;
+  margin-top: 100px;
+
+}
