@@ -1,0 +1,13 @@
+.ProgramacionEventos{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    border-bottom-style: solid;
+    border-bottom-color: white;
+   
+   
+}
+P.pooading{
+    margin: 15px;
+}

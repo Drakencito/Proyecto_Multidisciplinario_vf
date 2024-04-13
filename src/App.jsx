@@ -11,13 +11,13 @@ import Employees from "./Pages/Employees/Employees";
 import Associates from "./Pages/Associates/Associates";
 import Events from "./Pages/Events/Events";
 import Register from "./Pages/Register/Register";
+import './index.css'
 
 function App() {
 
   return (
     
     <Router>
-      <div>
   
         <Routes>
           <Route path="/solicitud" element={<Solicitud />} />
@@ -30,7 +30,6 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<Home />} />
         </Routes>
-      </div>
     </Router>
   );
 }

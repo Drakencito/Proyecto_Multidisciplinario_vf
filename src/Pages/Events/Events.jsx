@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../../components/Header";
+import ProgramacionEventos from "./ProgramacionEventos/ProgramacionEventos";
 import "./Events.css"
 function Events(){
     return(
@@ -7,8 +8,13 @@ function Events(){
             <Header title="Eventos"/>
             <div className="boxEvents">
                 <div className="añadir">
-                <button className="botonEvents" onClick={cambio} id="botonEvents">Añadir +</button>
+                <button className="botonEvents"  id="botonEvents">Añadir +</button>
                 </div>
+                <ProgramacionEventos
+                Titulo="Hola"
+                Descripcion="Tarea del mes"
+                FechayHora="200324"
+                />
                 
             </div>
             

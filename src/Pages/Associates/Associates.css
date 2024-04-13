@@ -1,7 +1,7 @@
 .Associates{
     width: 100%;
-    min-height: 100%;
-    height: auto;
+    
+    /* height: auto; */
     background-color: #242424;
 }
 .containerSerch{

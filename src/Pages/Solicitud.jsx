@@ -19,7 +19,7 @@ function Solicitud() {
   }
 
   return (
-    <div>
+    <div className="bg-white">
       <NavbarX />
       <img src={reclu} className="reclu-img"/>
       

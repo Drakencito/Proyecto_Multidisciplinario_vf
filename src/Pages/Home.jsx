@@ -3,7 +3,7 @@ import FirstSection from '../components/First.section'
 
 function Home() {
   return (
-    <div>
+    <div className='bg-white'>
         <FirstSection/>
     </div>
   )
