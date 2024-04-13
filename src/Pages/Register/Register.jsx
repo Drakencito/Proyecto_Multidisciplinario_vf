@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import '../Register/Register.css'
-
+//hola jou
 function Register() {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const navigate = useNavigate();
