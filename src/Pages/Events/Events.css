@@ -1,19 +1,44 @@
 .Events{
-    background-color: #252525;
     width: 100%;
-    /* height: 100%; */
+     height: 100vh;
 }
 
-.boxEvents{
+
+.boxEvents {
     border-style: solid;
     border-color: white;
-    width: 50%;
-    height: 800px;
+    height: 700px;
+    margin-top: 70px;
     margin-left: 50px;
     margin-right: 50px;
-    margin-top: 100px;
-    margin-bottom: 100px;
+    animation: widthIn 0.5s ease forwards;
+    
 }
+
+@keyframes widthIn {
+    from {
+        width: 50%;
+    }
+    to {
+        width: 96%;
+    }
+}
+
+@keyframes widthOut {
+    from {
+        width: 96%;
+    }
+    to {
+        width: 50%;
+    }
+}
+
+.boxEvents.lessWidth {
+    
+    animation: widthOut 0.5s ease forwards;
+}
+
+
 .añadir{
     display: flex;
     justify-content: end;
@@ -26,8 +51,26 @@
     margin-right: 50px;
     height: 50px;
     width: 120px;
-    font-size: 25px;
+    font-size: 20px;
+    font-weight: 600;
     color: white;
     background-color: #89AA01;
+    border: none;
+    border-radius: 5px;
+
+}
+.botonEvents:hover{
+    background-color:white ;
+    color: #89AA01;
+}
+.Scrol{
+    overflow-y: auto;
+    height: 595px;
+}
+
+
+.loool{
+    display: flex;
+    flex-direction: row;
 }
 

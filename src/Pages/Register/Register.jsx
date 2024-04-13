@@ -34,7 +34,7 @@ const Register = () => {
   };      
   
   return (
-    <div className="login-wrapper">
+    <div className="login-wrapper bg-white">
       <div className="login-box">
         <h2>Register</h2>
         <form onSubmit={handleRegister}>

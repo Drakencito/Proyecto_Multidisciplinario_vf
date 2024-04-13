@@ -4,7 +4,7 @@ import logo from '../assets/logo.jpg'
 import '../Pages/InicioSesion.css'
 function IniciSesion(){
     return(
-        <div className="boxIniciSecion">
+        <div className="boxIniciSecion bg-white">
             <div className="imgIniciSecion">
                 <img src={logo} alt="logo" />
             </div>
