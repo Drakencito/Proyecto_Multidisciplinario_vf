@@ -1,102 +1,97 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Cambiado a useNavigate
+import React from "react";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import '../Register/Register.css'
 
-const Register = () => {
-  const [correo_electronico, setEmail] = useState("");
-  const [contraseña, setcontraseña] = useState("");
-  const [nombre, setNombre] = useState("");
-  const [apellido, setApellido] = useState("")
-  const navigate = useNavigate(); // Cambiado a useNavigate
+function Register() {
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const navigate = useNavigate();
 
-  const handleRegister = (e) => {
-    e.preventDefault(); // Evitar el envío del formulario por defecto
-
-    // Validar los campos antes de redirigir o enviar datos a la API
-    if (!correo_electronico || !contraseña || !nombre || !apellido) {
-      alert("Por favor, complete todos los campos.");
-      return;
-    }
-
-    console.log( JSON.stringify({ correo_electronico, contraseña,nombre,apellido }))
-
-      .then(response => response.json())
-      .then(data => {
-        console.log('Registro exitoso:', data);
-        history.push("/"); // Redirigir a la página principal después del registro exitoso
-      })
-      .catch(error => {
-        console.error('Error al registrar:', error);
-        alert('Se ha agregado excitosamente.');
+  const onSubmit = async (data) => {
+    try {
+      const response = await fetch('http://localhost:3000/api/v1/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
       });
 
-    // Simulación de redirección después del registro exitoso
-  };      
-  
+      if (response.ok) {
+       
+        navigate("/inicioSesion");
+      } else {
+       
+        console.error('Error en la solicitud:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error al enviar los datos:', error);
+    }
+  };
+
   return (
     <div className="login-wrapper">
       <div className="login-box">
         <h2>Register</h2>
-        <form onSubmit={handleRegister}>
-
-          {/* a */}
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div className="input-box">
             <input
               type="text"
-              required
-              value={nombre}
-              onChange={(e) => setNombre(e.target.value)}
+              {...register("name", { required: true })}
             />
             <label>Nombre</label>
+            {errors.name && <span className="error-message">Este campo es requerido</span>}
           </div>
 
-          {/* c */}
           <div className="input-box">
             <input
               type="text"
-              required
-              value={apellido}
-              onChange={(e) => setApellido(e.target.value)}
+              {...register("gender", { required: true })}
             />
-            <label>Apellido</label>
+            <label>Genero</label>
+            {errors.gender && <span className="error-message">Este campo es requerido</span>}
+          </div>
+
+          <div className="input-box">
+            <input
+              type="text"
+              {...register("age", { required: true })}
+            />
+            <label>Edad</label>
+            {errors.age && <span className="error-message">Este campo es requerido</span>}
           </div>
 
           <div className="input-box">
             <input
               type="email"
-              required
-              value={correo_electronico}
-              onChange={(e) => setEmail(e.target.value)}
+              {...register("email", { required: true })}
             />
             <label>Email</label>
+            {errors.email && <span className="error-message">Este campo es requerido</span>}
           </div>
 
-          {/* b */}
-          <div className="input-box">
-            <input
-              type="password"
-              required
-              value={contraseña}
-              onChange={(e) => setcontraseña(e.target.value)}
-            />
+          <div class="input-box">
+            <input type="password" {...register("password", { required: true })} />
             <label>Contraseña</label>
+            {errors.password && <span className="error-message">Este campo es requerido</span>}
           </div>
-
+          
+         
           <button type="submit" className="btn">
             Register
           </button>
-          <div className="login-register">
-            <p>
-              Already have an account?{" "}
-              <a href="#" className="register-link" onClick={() => navigate("/login")}>
-                Login
-              </a>
-            </p>
-          </div>
         </form>
+        <div className="login-register">
+          <p>
+            Already have an account?{" "}
+            <a href="#" className="register-link" onClick={() => navigate("/inicioSesion")}>
+              Login
+            </a>
+          </p>
+        </div>
       </div>
     </div>
   );
-};
+}
 
 export default Register;
