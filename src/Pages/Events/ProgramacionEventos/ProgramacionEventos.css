@@ -11,3 +11,10 @@
 P.pooading{
     margin: 15px;
 }
+.Basurero{
+    height: 50px;
+}
+.EliminarButon{
+    border: none;
+    background-color: #242424;
+}

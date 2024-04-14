@@ -17,7 +17,7 @@
 
 @keyframes widthIn {
     from {
-        width: 50%;
+        width: 65%;
     }
     to {
         width: 96%;
@@ -29,7 +29,7 @@
         width: 96%;
     }
     to {
-        width: 50%;
+        width: 65%;
     }
 }
 

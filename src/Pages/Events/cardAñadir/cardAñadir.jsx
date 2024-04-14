@@ -24,8 +24,15 @@ function CardAñadir(props){
             <div className="TyH">
             <input className="inputCardAñadir date" value={new Date(props.data.fechayHora)}  type="date" />
             <input className="inputCardAñadir time" value={new Date(props.data.fechayHora)} type="time" />
-            <button className=" butonAñadir">Editar</button>
+            
             </div>
+            
+            <button className=" butonAñadir">Editar</button>
+            
+            
+            
+            
+            
             </div>}
     
     
