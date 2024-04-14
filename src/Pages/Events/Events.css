@@ -36,9 +36,11 @@
 .boxEvents.lessWidth {
     
     animation: widthOut 0.5s ease forwards;
+    
 }
-
-
+.cardAñadir.lessWidth{
+    display: none;
+}
 .añadir{
     display: flex;
     justify-content: end;
