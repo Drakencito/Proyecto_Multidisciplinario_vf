@@ -14,21 +14,15 @@ function CuestionarioIniciSecion() {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
+        credentials: 'include' // Agrega esta línea para incluir las cookies en la solicitud
       });
 
-
-
-
-    if (response.ok) {
-      const data = await response.json();
-     if (data.token) {
-      localStorage.setItem('token', data.token); // Almacenamiento temporal (NO RECOMENDADO)
-      navigate("/categories");
-  } else {
-    console.error('Error: La respuesta no contiene un token');
-  }
-}
+      if (response.ok) {
+        navigate("/categories");
+      } else {
+        console.error('Error en la solicitud:', response.statusText);
+      }
     } catch (error) {
       console.error('Error al enviar los datos:', error);
     }
