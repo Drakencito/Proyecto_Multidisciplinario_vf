@@ -40,3 +40,15 @@ margin-top: 20px;
     flex-direction: column;
     align-items: start;
 }
+
+.boxBotonAplicants{
+    height: 70px;
+    display: flex;
+   margin-right: 20px;
+}
+.botonAplicants{
+    height: 100%;
+    background-color: #242424;
+    border: none; 
+    margin-left: 20px;
+}
