@@ -1,111 +1,114 @@
 import React, { useEffect, useState } from "react";
+import axios from 'axios'; 
 import Header from "../../components/Header";
 import ProgramacionEventos from "./ProgramacionEventos/ProgramacionEventos";
 import CardAñadir from "./cardAñadir/cardAñadir";
-import "./Events.css"
-function Events(){
-    const [showadd,setshowadd]=useState(false)
-    const [datdb,setdatadb]=useState([])
-    const [datashow,setdatshow]=useState(null)
+import "./Events.css";
 
-    function searchmydata(id){
-    
-       const result = datdb.find(x => x.id == id);
-       handleSwitchSize()
-       setdatshow(result)
-       
-    }
-    function getdatos(){
-        //peticion al api rest
+function Events() {
+    const [showadd, setshowadd] = useState(false);
+    const [datdb, setdatadb] = useState([]);
+    const [datashow, setdatashow] = useState(null);
 
-        const data=[{id:1,titulo:"Hola",descripcion:"Tarea del mes",fechayHora:"200324",
-        
-    },
-    {id:2,titulo:"Hola",descripcion:"Tarea del mes",fechayHora:"200324",
-        
-},{id:3,titulo:"Hola",descripcion:"Tarea del mes",fechayHora:"200324",
-        
-}
-,{id:4,titulo:"Hola",descripcion:"Tarea del mes",fechayHora:"200324",
-        
-},{id:5,titulo:"Hola",descripcion:"Tarea del mes",fechayHora:"200324",
-        
-},{id:6,titulo:"Hola",descripcion:"Tarea del mes",fechayHora:"200324",
-        
-},{id:7,titulo:"Hola",descripcion:"Tarea del mes",fechayHora:"200324",
-        
-},{id:8,titulo:"Hola",descripcion:"Tarea del mes",fechayHora:"200324",
-        
-}
-,{id:9,titulo:"Hola",descripcion:"Tarea del mes",fechayHora:"200324",
-        
-}]
-return data
+    async function getdatos() {
+        try {
+            const response = await axios.get('http://localhost:3000/api/v1/events', { withCredentials: true });
+            return response.data.map(evento => ({
+                id: evento._id,
+                titulo: evento.title,
+                descripcion: evento.description,
+                fechayHora: new Date(evento.date).toLocaleString('es-ES', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                })
+            }));
+        } catch (error) {
+            console.error('Error al obtener los datos:', error);
+            return [];
+        }
     }
 
+    const deleteEvent = async (id) => {
+        try {
+            await axios.delete(`http://localhost:3000/api/v1/events/${id}`, { withCredentials: true });
+            setdatadb(datadb.filter(event => event.id !== id));
+        } catch (error) {
+            console.error('Error al eliminar el evento:', error);
+        }
+    };
 
-    useEffect(()=>{
-      setdatadb(getdatos())
-      
+    const handleUpdateEvent = async () => {
+        try {
+            const updatedData = await getdatos();
+            setdatadb(updatedData);
+            setshowadd(false);
+        } catch (error) {
+            console.error('Error al actualizar el evento:', error);
+        }
+    };
 
-    },[])
+    useEffect(() => {
+        const fetchData = async () => {
+            const data = await getdatos();
+            setdatadb(data);
+        };
 
+        fetchData();
+    }, []);
 
     const handleSwitchSize = () => {
         const boxEvents = document.querySelector('.boxEvents');
 
-        
-       
-       setshowadd(x=>!x)
-       if(showadd==false){
-        setdatshow(null)
-       }
-        
-        boxEvents.classList.toggle('fullWidth')
+        setshowadd(x => !x);
+        if (showadd === false) {
+            setdatashow(null);
+        }
+
+        boxEvents.classList.toggle('fullWidth');
         boxEvents.classList.toggle('lessWidth');
-    }
+    };
 
-
-    return(
+    return (
         <div className="Events">
-            <Header title="Eventos"/>
+            <Header title="Eventos" />
             <div className="loool">
-                
-           
-            <div className="boxEvents">
-                <div className="añadir">
-                <button className="botonEvents" onClick={handleSwitchSize}  >Añadir +</button>
+                <div className="boxEvents">
+                    <div className="añadir">
+                        <button className="botonEvents" onClick={handleSwitchSize}>
+                            Añadir +
+                        </button>
+                    </div>
+                    <div className="Scrol">
+                        {datdb.length !== 0
+                            ? datdb.map((x) => (
+                                <ProgramacionEventos
+                                    key={x.id}
+                                    id={x.id}
+                                    Titulo={x.titulo}
+                                    Descripcion={x.descripcion}
+                                    FechayHora={x.fechayHora}
+                                    onDelete={() => deleteEvent(x.id)} 
+                                    onUpdate={handleUpdateEvent} // Pasar la función onUpdate
+                                />
+                            ))
+                            : <></>}
+                    </div>
                 </div>
-                <div className="Scrol">
-                {datdb.length!=0?datdb.map(x=> 
-                <ProgramacionEventos
-                key={x.id}
-                selected={searchmydata}
-                 id={x.id}
-                  Titulo={x.titulo}
-                  Descripcion={x.descripcion}
-                  FechayHora={x.fechayHora}
-                  />
-                
-                
-                ):<></>}
-
-                </div>
-                
-                
+                {showadd ? (
+                    <CardAñadir
+                        data={datashow}
+                        cerrar={handleSwitchSize}
+                        className="cardAñadir"
+                    />
+                ) : (
+                    <></>
+                )}
             </div>
-            {showadd?<CardAñadir
-            data={datashow}
-             cerrar={handleSwitchSize}
-              className="cardAñadir"/>:<></>}
-
-           
-
-            </div>
-           
-            
-            
         </div>
     );
 }
+
 export default Events;

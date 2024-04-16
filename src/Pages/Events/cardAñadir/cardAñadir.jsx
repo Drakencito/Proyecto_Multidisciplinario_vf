@@ -16,10 +16,12 @@ function CardAñadir(props) {
         e.preventDefault();
         try {
             if (props.data == null) {
-                axios.post('http://localhost:3000/api/v1/events', formData, { withCredentials: true });
+                await axios.post('http://localhost:3000/api/v1/events', formData, { withCredentials: true });
             } else {
                 await axios.put(`http://localhost:3000/api/v1/events${props.data._id}`, formData);
             }
+            const updatedData = await getdatos();
+            setdatadb(updatedData);
             // Aquí podrías redirigir a otra página o mostrar un mensaje de éxito
         } catch (error) {
             // Manejar errores de creación o edición de eventos
@@ -84,13 +86,15 @@ function CardAñadir(props) {
                         <input className="inputCardAñadir time" type="time" />
                     </div>
                     <button className="butonAñadir" onClick={handleSubmit}>
-                        Editar
+                        añadir
                     </button>
                 </div>
             )}
         </>
     );
 }
+
+
 
 export default CardAñadir;
 
