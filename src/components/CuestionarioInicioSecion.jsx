@@ -15,7 +15,7 @@ function CuestionarioIniciSecion() {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(data),
-        credentials: 'include' // Agrega esta línea para incluir las cookies en la solicitud
+        credentials: 'include' 
       });
 
       if (response.ok) {
