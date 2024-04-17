@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import "./cardAñadir.css"
 
 function CardAñadir(props) {
     const [formData, setFormData] = useState({
         title: '',
         description: '',
         date: '',
+        time: '', 
     });
+    const [error, setError] = useState('');
+
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -15,16 +21,30 @@ function CardAñadir(props) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
+            const dateParts = formData.date.split('-'); // Separar la fecha en partes
+            const timeParts = formData.time.split(':'); // Separar la hora en partes
+            const dateTime = new Date(
+                parseInt(dateParts[0]),
+                parseInt(dateParts[1]) - 1, // Los meses en JavaScript van de 0 a 11
+                parseInt(dateParts[2]),
+                parseInt(timeParts[0]),
+                parseInt(timeParts[1])
+            );
+
+            const dataToSubmit = { ...formData, date: dateTime }; // Actualizar el objeto formData con la fecha y hora combinadas
+
             if (props.data == null) {
-                await axios.post('http://localhost:3000/api/v1/events', formData, { withCredentials: true });
+                await axios.post('http://localhost:3000/api/v1/events', dataToSubmit, { withCredentials: true });
+                
             } else {
-                await axios.put(`http://localhost:3000/api/v1/events${props.data._id}`, formData);
+                await axios.put(`http://localhost:3000/api/v1/events${props.data._id}`, dataToSubmit);
             }
             const updatedData = await getdatos();
             setdatadb(updatedData);
-            // Aquí podrías redirigir a otra página o mostrar un mensaje de éxito
+            navigate('/events');
         } catch (error) {
-            // Manejar errores de creación o edición de eventos
+            setError('Error al añadir el evento'); 
+            //alert('Error al añadir el evento'); 
         }
     };
 
@@ -53,10 +73,15 @@ function CardAñadir(props) {
                             name="date"
                             onChange={handleChange}
                         />
-                        <input className="inputCardAñadir time" type="time" />
+                        <input 
+                            className="inputCardAñadir time" 
+                            type="time" 
+                            name="time" 
+                            onChange={handleChange} 
+                        />
                     </div>
                     <button className="butonAñadir" onClick={handleSubmit}>
-                        Añadir
+                        Añadir    
                     </button>
                 </div>
             ) : (
@@ -70,7 +95,7 @@ function CardAñadir(props) {
                         value={formData.title}
                         onChange={handleChange}
                     />
-                    <textarea
+                    <textarea className='txtara'
                         name="description"
                         value={formData.description}
                         onChange={handleChange}
@@ -83,18 +108,22 @@ function CardAñadir(props) {
                             value={formData.date}
                             onChange={handleChange}
                         />
-                        <input className="inputCardAñadir time" type="time" />
+                        <input 
+                            className="inputCardAñadir time" 
+                            type="time" 
+                            name="time" 
+                            value={formData.time} 
+                            onChange={handleChange} 
+                        />
                     </div>
                     <button className="butonAñadir" onClick={handleSubmit}>
                         añadir
                     </button>
+                   
                 </div>
             )}
         </>
     );
 }
 
-
-
 export default CardAñadir;
-

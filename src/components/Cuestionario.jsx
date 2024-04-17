@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import { SignupFormDemo } from "./Form"; // Assuming SignupFormDemo is in the ./Form directory
-import "../components/Cuestionario.css"; // Assuming the CSS file is in the ./components directory
+import { SignupFormDemo } from "./Form"; 
+import "../components/Cuestionario.css"; 
 
 function CuestionarioX() {
   const [show, setShow] = useState(false);

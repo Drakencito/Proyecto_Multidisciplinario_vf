@@ -1,64 +1,126 @@
-import React, { useState } from "react";
-import will from '../../assets/will.jpg'
+import React, { useState, useEffect } from "react";
 import eliminar from '../../assets/borrar.png'
 import editar from '../../assets/editar.png'
 import '../Applicants/Applicants.css'
-import { input } from "@nextui-org/react";
+import axios from 'axios';
 
 function Modal(props) {
+  const [formData, setFormData] = useState({
+    name: props.name || '',
+    career: props.career || '',
+    position: props.position || '',
+    description: props.description || ''
+  });
+
+  useEffect(() => {
+    setFormData({
+      name: props.name || '',
+      career: props.career || '',
+      position: props.position || '',
+      description: props.description || ''
+    });
+  }, [props.name, props.career, props.position, props.description]);
+
+  const handleInputChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.put(`http://localhost:3000/api/v1/applications/${props.id}`, formData, { withCredentials: true });
+      props.onSave(formData);
+      props.onClose();
+    } catch (error) {
+      console.error("Error al actualizar la aplicación:", error);
+    }
+  };
   return (
     <div className="modal" style={{ display: props.show ? "block" : "none" }}>
-        <div>
-      <div className="modal-content">
-        <div className="x">
-        <span className="close" onClick={props.onClose}>&times;</span>
+      <div>
+        <div className="modal-content">
+          <div className="x">
+            <span className="close" onClick={props.onClose}>&times;</span>
+          </div>
+          <form onSubmit={handleSubmit}>
+            <input type="text" placeholder="Nombre" name="name" value={formData.name} onChange={handleInputChange} className="inputModal" />
+            <input type="text" placeholder="Carrera" name="career" value={formData.career} onChange={handleInputChange} className="inputModal" />
+            <input type="text" placeholder="Posición" name="position" value={formData.position} onChange={handleInputChange} className="inputModal" />
+            <input type="text" placeholder="Descripción" name="description" value={formData.description} onChange={handleInputChange} className="inputModal" />
+            <button type="submit" >Guardar</button>
+          </form>
         </div>
-        {}
-        <input type="text" placeholder="Nombre" className="inputModal" />
-        <input type="text" placeholder="Edad" className="inputModal"/>
-        <input type="text" placeholder="Genero" className="inputModal"/>
-        <input type="text" placeholder="Numero" className="inputModal"/>
-        <input type="text" placeholder="Correo" className="inputModal"/>
-        
-      </div>
       </div>
     </div>
   );
 }
-
 function ApplicantsX(props) {
   const [showModal, setShowModal] = useState(false);
+  const [applications, setApplications] = useState([]);
 
-  const handleEditClick = () => {
+  useEffect(() => {
+    const fetchApplications = async () => {
+      try {
+        const response = await axios.get('http://localhost:3000/api/v1/applications', { withCredentials: true });
+        setApplications(response.data);
+      } catch (error) {
+        console.error("Error al obtener las aplicaciones:", error);
+      }
+    };
+    fetchApplications();
+  }, []);
+
+  const handleEditClick = (id) => {
     setShowModal(true);
-    // Aquí podrías agregar lógica adicional para cargar los datos del usuario en el modal
+    setEditId(id); // Añade esta línea para guardar el ID de la aplicación que se está editando
   };
 
   const handleCloseModal = () => {
     setShowModal(false);
   };
 
+  const handleSave = () => {
+    // Aquí podrías realizar alguna acción después de actualizar la aplicación, como refrescar la lista de aplicaciones
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`http://localhost:3000/api/v1/applications/${id}`, { withCredentials: true });
+      const updatedApplications = applications.filter(app => app._id !== id);
+      setApplications(updatedApplications);
+    } catch (error) {
+      console.error("Error al eliminar la aplicación:", error);
+    }
+  };
+
   return (
-    <div className="ApplicantsX">
-      <img className="ImgApplicants" src={will} alt="" />
-      <div className="info">
-        <div className="Name">
-          <p>{props.name}</p>
-          <p className="eage">{props.eage}</p>
+    <div>
+      {applications.map((app) => (
+        <div key={app._id} className="ApplicantsX">
+          <div className="info">
+            <div className="Name">
+              <p>Nombre: {app.name}</p>
+              <p>Carrera: {app.career}</p>
+            </div>
+            <p>Posición: {app.position}</p>
+          </div>
+          <div className="info">
+            <p>Descripción: {app.description}</p>
+          </div>
+          <div className="boxBotonAplicants">
+            <button className="botonAplicants" onClick={() => handleDelete(app._id)}>
+              <img className="botonAplicants" src={eliminar} alt="Eliminar" />
+            </button>
+            <button className="botonAplicants" onClick={() => handleEditClick(app._id)}>
+              <img className="botonAplicants" src={editar} alt="Editar" />
+            </button>
+          </div>
+          <Modal show={showModal} onClose={handleCloseModal} onSave={handleSave} id={app._id} />
+
         </div>
-        <p className="genero">Genero: {props.gener}</p>
-      </div>
-      <div className="info">
-        <p>Numero: {props.tell}</p>
-        <p className="correo">Correo: {props.mail}</p>
-      </div>
-
-      <div className="boxBotonAplicants">
-        <button className="botonAplicants"><img className="botonAplicants" src={eliminar} alt="Eliminar" /></button>
-        <button className="botonAplicants" onClick={handleEditClick}><img className="botonAplicants" src={editar} alt="Editar" /></button>
-      </div>
-
-      <Modal show={showModal} onClose={handleCloseModal} />
+      ))}
     </div>
   );
 }
