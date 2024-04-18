@@ -6,10 +6,12 @@ import "../components/Styles.atoms.css";
 const NavbarX = () => {
   return (
       <nav className="navbar">
-      <Link to="/inicioSesion">
+      <Link to="/categories">
       <img src={logo} className="img" />
       </Link>
-      
+      <Link to="/inicioSesion">
+      <button>Iniciar Sesion</button>
+      </Link>
       <ul className="nav-links">
         <li>
           <Link to="/solicitud" className="reclu">

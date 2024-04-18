@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 80px;
+    min-height: 80px;
     border-bottom-style: solid;
     border-bottom-color: white;
    
@@ -13,8 +13,33 @@ P.pooading{
 }
 .Basurero{
     height: 50px;
+    margin-left: 75px;
 }
 .EliminarButon{
     border: none;
     background-color: #242424;
 }
+.description{
+    width: 70%;
+   
+}
+.titulo{
+    width: 20%;
+}
+.dat{
+    width: 20%;
+    text-align: center;
+    justify-content: center;
+}
+.botones{
+    width: 30%;
+    align-items: center;
+    justify-content: center;
+}
+.AñadirButon{
+    background-color: #89AA01;
+    border: none;
+    border-radius: 5px;
+}
+
+

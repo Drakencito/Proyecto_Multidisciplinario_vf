@@ -22,12 +22,12 @@ function Associates(){
             <CardAssociates
         empresa="CFE"
         asociasion="Civil"
-        descripcion="Asdasda as dasdaasds  asd dsadasdasdas sad as da asdas asd "
+        descripcion="La Comisión Federal de Electricidad (CFE) es una empresa pública de carácter social que provee energía eléctrica, servicio fundamental para el desarrollo de una nación. Es una empresa productiva del Estado, propiedad exclusiva del gobierno federal, con personalidad jurídica y patrimonio propio. Goza de autonomía técnica, operativa y de gestión conforme a lo dispuesto en la Ley de la Comisión Federal de Electricidad. "
         />
         <CardAssociates
         empresa="Acciona"
-        asociasion="Civil"
-        descripcion="Asdasda as dasdaasds  asd dsadasdasdas sad as da asdas asd "
+        asociasion="Energía Eólica"
+        descripcion="ACCIONA es un grupo global de desarrollo y gestión de soluciones sostenibles de infraestructuras, especialmente de energía renovable. Su actividad cubre toda la cadena de valor de diseño, construcción, operación y mantenimiento.  "
         />
         
         

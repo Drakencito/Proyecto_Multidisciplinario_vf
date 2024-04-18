@@ -59,7 +59,7 @@
     background-color: #89AA01;
     border: none;
     border-radius: 5px;
-
+    font-size: 15px;
 }
 .botonEvents:hover{
     background-color:white ;
@@ -75,4 +75,20 @@
     display: flex;
     flex-direction: row;
 }
+.cabecera1{
+    margin-left: 10px;
+    width: 20%;
+    color: aliceblue;
+    font-size: 30px;
+}
+.cabecera2{
+    width: 65%;
+    color: aliceblue;
+    font-size: 30px;
+}
 
+.cabecera3{
+    width: 30%;
+    color: aliceblue;
+    font-size: 30px;
+}

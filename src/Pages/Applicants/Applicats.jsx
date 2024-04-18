@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import eliminar from '../../assets/borrar.png'
-import editar from '../../assets/editar.png'
-import '../Applicants/Applicants.css'
+import eliminar from '../../assets/borrar.png';
+import editar from '../../assets/editar.png';
+import '../Applicants/Applicants.css';
 import axios from 'axios';
 
 function Modal(props) {
@@ -49,7 +49,7 @@ function Modal(props) {
             <input type="text" placeholder="Carrera" name="career" value={formData.career} onChange={handleInputChange} className="inputModal" />
             <input type="text" placeholder="Posición" name="position" value={formData.position} onChange={handleInputChange} className="inputModal" />
             <input type="text" placeholder="Descripción" name="description" value={formData.description} onChange={handleInputChange} className="inputModal" />
-            <button type="submit" >Guardar</button>
+            <button type="submit">Guardar</button>
           </form>
         </div>
       </div>
@@ -97,32 +97,37 @@ function ApplicantsX(props) {
 
   return (
     <div>
-      {applications.map((app) => (
-        <div key={app._id} className="ApplicantsX">
-          <div className="info">
-            <div className="Name">
-              <p>Nombre: {app.name}</p>
-              <p>Carrera: {app.career}</p>
-            </div>
-            <p>Posición: {app.position}</p>
-          </div>
-          <div className="info">
-            <p>Descripción: {app.description}</p>
-          </div>
-          <div className="boxBotonAplicants">
-            <button className="botonAplicants" onClick={() => handleDelete(app._id)}>
-              <img className="botonAplicants" src={eliminar} alt="Eliminar" />
-            </button>
-            <button className="botonAplicants" onClick={() => handleEditClick(app._id)}>
-              <img className="botonAplicants" src={editar} alt="Editar" />
-            </button>
-          </div>
-          <Modal show={showModal} onClose={handleCloseModal} onSave={handleSave} id={app._id} />
+        {applications.map((app) => (
+            <div key={app._id} className="ApplicantsX">
+                <div className="info">
+                    <div>
+                        <p className="letra">Nombre: {app.name}</p>
+                    </div>
+                    <div>
+                        <p className="letra">Carrera: {app.career}</p>
+                    </div>
+                    <div>
+                        <p className="letra">Posición: {app.position}</p>
+                    </div>
+                    <div>
+                        <p className="letra">Descripción: {app.description}</p>
+                    </div>
+                </div>
 
-        </div>
-      ))}
+                <div className="boxBotonAplicants">
+                    <button className="botonAplicants" onClick={() => handleDelete(app._id)}>
+                        <img className="botonAplicants" src={eliminar} alt="Eliminar" />
+                    </button>
+                    <button className="botonAplicants" onClick={() => handleEditClick(app._id)}>
+                        <img className="botonAplicants" src={editar} alt="Editar" />
+                    </button>
+                </div>
+                <Modal show={showModal} onClose={handleCloseModal} onSave={handleSave} id={app._id} />
+            </div>
+        ))}
     </div>
-  );
+);
+
 }
 
 export default ApplicantsX;

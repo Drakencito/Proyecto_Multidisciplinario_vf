@@ -76,10 +76,14 @@ function Events() {
             <Header title="Eventos" />
             <div className="loool">
                 <div className="boxEvents">
-                    <div className="añadir">
+                    <div className="añadir"> 
+                        <div className="cabecera1">Titulo</div>
+                        <div className="cabecera2">Descripcion</div>
+                        <div className="cabecera3">Fecha y hora</div>
                         <button className="botonEvents" onClick={handleSwitchSize}>
                             Añadir +
                         </button>
+                       
                     </div>
                     <div className="Scrol">
                         {datdb.length !== 0

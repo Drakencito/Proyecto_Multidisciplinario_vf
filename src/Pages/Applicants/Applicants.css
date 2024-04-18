@@ -1,10 +1,26 @@
-.ApplicantsX{
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 130px;
-    border-style: solid;
-    border-color: white;
+.ApplicantsX {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  justify-content: center;
+  align-items: center;  
+  
+}
+
+.info {
+
+  flex: 1;
+}
+
+.boxBotonAplicants {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  height: 70px;
 }
 .ImgApplicants{
     height: 80px;
@@ -16,7 +32,7 @@
 
 p{
     color: white;
-    font-size: 20px;
+    font-size: 40px;
     margin: 0%;
 }
 .Name{
@@ -41,58 +57,74 @@ margin-top: 20px;
     align-items: start;
 }
 
-.boxBotonAplicants{
-    height: 70px;
-    display: flex;
-   margin-right: 20px;
-}
+
 .botonAplicants{
     height: 100%;
     background-color: #242424;
     border: none; 
     margin-left: 20px;
 }
-
-
 .modal {
-    display: none; 
-    position: fixed; 
-    z-index: 1; 
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto; 
-    background-color: rgba(0, 0, 0, 0.4); 
-  }
-  
-  .modal-content {
-    display: flex;
-    align-items: center;
-    background-color: #fefefe;
-    margin: 20% auto; 
-    padding: 20px;
-    border: 1px solid #888;
-    width: 500px; 
-  }
-  .x{
-    width: 500px;
-  }
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
 
-  
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  .inputModal{
-    width: 500px;
-  }
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.x {
+  text-align: right;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.inputModal {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+.letra{
+  font-size: 24px;
+}

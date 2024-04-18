@@ -9,7 +9,7 @@ function RequestsX() {
       <div className="Absolute">
         <Header title="Solicitudes" />
         <div className="containerSerch">
-          <input className="Serch" type="text" placeholder="Buscar" />
+         
         </div>
       </div>
       <ApplicantsX

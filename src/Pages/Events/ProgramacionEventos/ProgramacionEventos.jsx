@@ -1,8 +1,8 @@
 import axios from 'axios';
 import React, { useState } from "react";
 import basurero from "../../../assets/borrar.png";
-import "../ProgramacionEventos/ProgramacionEventos.css";
 
+import "./ProgramacionEventos.css"
 function ProgramacionEventos(props) {
   const [editMode, setEditMode] = useState(false);
   const [formData, setFormData] = useState({
@@ -64,24 +64,39 @@ function ProgramacionEventos(props) {
   };
 
   return (
+    
     <div className="ProgramacionEventos">
+      
       {!editMode && (
+        
         <>
-          <p className="pooading">{props.Titulo}</p>
-          <p className="pooading">{props.Descripcion}</p>
-          <p className="pooading">{props.FechayHora}</p>
-          <button className="EliminarButon" onClick={handleDelete}>
+          <div className='titulo'>
+            <p className="pooading">{props.Titulo}</p>
+          </div>
+          <div className='description'>
+            <p className="pooading">{props.Descripcion}</p>  
+          </div>
+          <div className='dat'>
+            <p className="pooading">{props.FechayHora}</p>
+          </div>
+          <div className='botones'>
+            <button className="EliminarButon" onClick={handleDelete}>
             <img className="Basurero" src={basurero} alt="Eliminar" />
           </button>
           <button className="AñadirButon" onClick={handleEdit}>
             Editar
           </button>
+          </div>
+          
         </>
       )}
       {editMode && (
         <>
           <input type="text" name="title" value={formData.title} onChange={handleChange} />
-          <textarea name="description" value={formData.description} onChange={handleChange} />
+      
+            <textarea  name="description" value={formData.description} onChange={handleChange} />
+         
+        
           <input type="date" name="date" value={formData.date} onChange={handleChange} />
           <input type="time" name="time" value={formData.time} onChange={handleChange} />
           <button onClick={handleUpdate}>Guardar</button>
