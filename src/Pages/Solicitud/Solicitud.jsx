@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import InfoContainer from "../components/InfoContainer";
-import NavbarX from "../components/Navbar";
-import reclu from "../assets/reclu.jpg";
-import CuestionarioX from "../components/Cuestionario";
-import "../Pages/Styles.css";
+import InfoContainer from "../../components/InfoContainer";
+import NavbarX from "../../components/Navbar";
+import reclu from '../../assets/reclu.jpg';
+import CuestionarioX from "../../components/Cuestionario";
+import "../Styles.css";
 
 function Solicitud() {
   const [name, setName] = useState("");

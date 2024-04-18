@@ -4,9 +4,9 @@ import '../components/Styles.atoms.css'
 
 function ImgX() {
   return (
-    <div>
+
       <img src={fondo} className="fondo" />
-    </div>
+    
   );
 }
 

@@ -30,14 +30,7 @@ margin-right: 30px;
   height: auto;
 }
 
-.info {
-width: 80%;
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-align-items: center;
 
-}
 
 .contac {
   color: green;
@@ -46,6 +39,15 @@ align-items: center;
 .reclu {
   color: black;
 }
+
+.containerinfohome{
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  }
 .containerInfo{
   width: 50%;
 }
@@ -72,7 +74,7 @@ align-items: center;
 }
 
 .container-img {
-  width: 50%;
+  width: 40%;
   
 }
 
@@ -100,9 +102,9 @@ align-items: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .asociation{

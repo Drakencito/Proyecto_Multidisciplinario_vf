@@ -2,10 +2,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { NextUIProvider } from "@nextui-org/react";
 import React from "react";
-import Home from "./Pages/Home";
-import Solicitud from "./Pages/Solicitud";
-import InicioSesion from "./Pages/InicioSesion";
-import CategoriesX from "./Pages/Categories";
+import Home from "./Pages/Home/Home";
+import Solicitud from "./Pages/Solicitud/Solicitud";
+import InicioSesion from "./Pages/inicioSecion/InicioSesion";
+import CategoriesX from "./Pages/categories/Categories";
 import RequestsX from "./Pages/Applicants/Requests";
 import Employees from "./Pages/Employees/Employees";
 import Associates from "./Pages/Associates/Associates";
