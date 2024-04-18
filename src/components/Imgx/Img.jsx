@@ -1,6 +1,6 @@
 import React from "react";
-import fondo from "../assets/fondo2.png";
-import '../components/Styles.atoms.css'
+import fondo from "../../assets/fondo2.png";
+import '../Styles.atoms.css'
 
 function ImgX() {
   return (

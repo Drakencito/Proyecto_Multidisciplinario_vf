@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import '../components/CuestionarioInicioSecion.css';
+import './CuestionarioInicioSecion.css';
 
 function CuestionarioIniciSecion() {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -34,6 +34,7 @@ function CuestionarioIniciSecion() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="input-box">
           <input
+          className="inputIniciosecion"
             type="text"
             placeholder="Correo"
             {...register("email", { required: true })}
@@ -44,6 +45,7 @@ function CuestionarioIniciSecion() {
 
         <div className="input-box">
           <input
+          className="inputIniciosecion"
             type="password"
             placeholder="Contraseña"
             {...register("password", { required: true })}
@@ -52,7 +54,7 @@ function CuestionarioIniciSecion() {
           {errors.password && <span className="error-message">Este campo es requerido</span>}
         </div>
 
-        <button type="submit" className="botonis">
+        <button type="submit" className="botonis inputIniciosecion">
           Iniciar sesión
         </button>
       </form>

@@ -7,6 +7,7 @@
   
     width: 640px;
     height: 90%;
+
   
     background-color: #89aa01;
     border-radius: 10%;
@@ -41,3 +42,9 @@
   body{
       background-color: white;
   }
+.inputIniciosecion{
+  width: 100%;
+}
+.input-box{
+  width: 100%;
+}

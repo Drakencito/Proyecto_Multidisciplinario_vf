@@ -1,5 +1,5 @@
 import React from "react";
-import CuestionarioIniciSecion from '../../components/CuestionarioInicioSecion'
+import CuestionarioIniciSecion from '../../components/CuestionarioInicioSecion/CuestionarioInicioSecion'
 import logo from '../../assets/logo.jpg'
 import './InicioSesion.css'
 function IniciSesion(){

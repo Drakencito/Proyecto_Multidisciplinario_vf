@@ -1,5 +1,5 @@
 import React from "react";
-import image7 from "../assets/image7.jpg";
+import image7 from "../../assets/image7.jpg";
 import './InfoContainer.css'
 function InfoContainer(){
     return(

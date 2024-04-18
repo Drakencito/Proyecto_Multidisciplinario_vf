@@ -1,5 +1,5 @@
 import React from "react";
-import '../components/InputIniciSecion.css'
+import './InputIniciSecion.css'
 
 function InputIniciSecion(props){
     return(

@@ -1,8 +1,8 @@
 import React from "react";
-import img2 from "../assets/image2.jpg";
-import img4 from "../assets/image4.jpg";
-import img5 from "../assets/image5.jpg";
-import '../components/Styles.atoms.css'
+import img2 from "../../assets/image2.jpg";
+import img4 from "../../assets/image4.jpg";
+import img5 from "../../assets/image5.jpg";
+import '../../components/Styles.atoms.css'
 
 function Info() {
   return (

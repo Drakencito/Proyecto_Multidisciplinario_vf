@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import InfoContainer from "../../components/InfoContainer";
+import InfoContainer from "../../components/infoContainer/InfoContainer";
 import NavbarX from "../../components/Navbar";
 import reclu from '../../assets/reclu.jpg';
-import CuestionarioX from "../../components/Cuestionario";
+import CuestionarioX from "../../components/CuestionerioSolicitud/Cuestionario";
 import "../Styles.css";
 
 function Solicitud() {
